@@ -1,6 +1,7 @@
 package by.teachmeskills.config.hibernate;
 
 
+import by.teachmeskills.entity.Room;
 import by.teachmeskills.entity.Service;
 import by.teachmeskills.entity.User;
 import by.teachmeskills.entity.Visitor;
@@ -44,6 +45,7 @@ public class HibernateJavaConfig {
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Service.class);
         configuration.addAnnotatedClass(Visitor.class);
+        configuration.addAnnotatedClass(Room.class);
         //        Сюда надо добавить наши данные по подключению
         configuration.setProperties(properties);
         serviceRegistryBuilder = new StandardServiceRegistryBuilder();

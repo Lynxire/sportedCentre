@@ -1,4 +1,4 @@
-package by.teachmeskills.entity;
+package by.teachmeskills.entity.status;
 
 public enum UserStatus {
     ACTIVED,
