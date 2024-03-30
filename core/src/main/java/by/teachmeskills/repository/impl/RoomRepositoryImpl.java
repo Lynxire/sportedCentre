@@ -2,14 +2,14 @@ package by.teachmeskills.repository.impl;
 
 import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 import by.teachmeskills.entity.Room;
-import by.teachmeskills.repository.PremisesRepositoryInterface;
+import by.teachmeskills.repository.RoomRepositoryInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class PremisesRepositoryImpl implements PremisesRepositoryInterface {
+public class RoomRepositoryImpl implements RoomRepositoryInterface {
 
     private final SessionFactory sessionFactory;
-    public PremisesRepositoryImpl(){
+    public RoomRepositoryImpl(){
         sessionFactory = HibernateJavaConfig.getSessionFactory();
     }
     @Override

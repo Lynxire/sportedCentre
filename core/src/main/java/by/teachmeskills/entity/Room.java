@@ -1,5 +1,6 @@
 package by.teachmeskills.entity;
 
+import by.teachmeskills.entity.status.UserStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 

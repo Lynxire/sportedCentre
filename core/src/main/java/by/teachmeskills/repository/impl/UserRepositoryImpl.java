@@ -42,5 +42,16 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
 
     }
 
+    @Override
+    public void deleteById(Long id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        User user = session.get(User.class, id);
+        session.remove(user);
+        session.getTransaction().commit();
+        session.close();
+
+    }
+
 
 }
