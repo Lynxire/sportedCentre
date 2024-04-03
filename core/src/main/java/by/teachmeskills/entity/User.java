@@ -23,7 +23,7 @@ public class User {
     private String name;
     private String surname;
     private Long number;
-    private LocalDate  date;
+    private LocalDate date;
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
     private Long age;

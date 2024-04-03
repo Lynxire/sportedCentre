@@ -8,17 +8,15 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@EqualsAndHashCode(callSuper = true)
+
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(name = "person_visitor_id")
 @Table(schema = "test", name = "visitor")
+@PrimaryKeyJoinColumn(name = "visitor_id")
 public class Visitor extends User {
 
-    @Column(name = "sum")
-    private BigDecimal sum;
+
 
 
 }

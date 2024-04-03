@@ -1,11 +1,8 @@
 package by.teachmeskills.config.hibernate;
 
 
+import by.teachmeskills.entity.*;
 import by.teachmeskills.entity.Record;
-import by.teachmeskills.entity.Room;
-import by.teachmeskills.entity.Service;
-import by.teachmeskills.entity.User;
-import by.teachmeskills.entity.Visitor;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -45,9 +42,10 @@ public class HibernateJavaConfig {
 //        Сюда надо добавить наши сущности (помеченные аннтацией Entity)
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Service.class);
-//        configuration.addAnnotatedClass(Visitor.class);
+        configuration.addAnnotatedClass(Visitor.class);
         configuration.addAnnotatedClass(Room.class);
         configuration.addAnnotatedClass(Record.class);
+        configuration.addAnnotatedClass(Employee.class);
         //        Сюда надо добавить наши данные по подключению
         configuration.setProperties(properties);
         serviceRegistryBuilder = new StandardServiceRegistryBuilder();
