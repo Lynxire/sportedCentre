@@ -18,15 +18,11 @@ import java.util.List;
 @Table(schema = "test", name = "user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
-    private Long number;
-    private LocalDate date;
-    @Enumerated(EnumType.STRING)
-    private UserStatus userStatus;
-    private Long age;
-    private BigDecimal sum;
+    private LocalDate birthday;
+    private String address;
 
 }
