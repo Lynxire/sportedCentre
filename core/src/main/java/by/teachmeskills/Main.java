@@ -36,8 +36,8 @@ public class Main {
         RoomService roomService = new RoomService();
         Room basketClub = new Room(null, "BasketClub", 510L, 20L, RoomStatus.ACTIVE, 4L,basketball);
         roomService.add(basketClub);
-        RecordService recordService = new RecordService();
 
+        RecordService recordService = new RecordService();
         Record record = new Record(null, LocalDate.now(), LocalTime.now(),user,basketClub);
         recordService.add(record);
 

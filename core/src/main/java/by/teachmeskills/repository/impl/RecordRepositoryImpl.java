@@ -16,7 +16,7 @@ public class RecordRepositoryImpl implements RecordRepositoryInterface {
     public void add(Record record) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(record);
+        session.merge(record);
         session.getTransaction().commit();
         session.close();
     }

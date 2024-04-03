@@ -23,7 +23,7 @@ public class Room {
     private RoomStatus roomStatus;
     private Long priceByHour;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "service_id")
     private Service service;
 
