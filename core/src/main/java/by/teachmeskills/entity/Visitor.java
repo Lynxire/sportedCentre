@@ -16,7 +16,4 @@ import java.math.BigDecimal;
 @PrimaryKeyJoinColumn(name = "visitor_id")
 public class Visitor extends User {
 
-
-
-
 }

@@ -1,5 +1,6 @@
 package by.teachmeskills.entity;
 
+import by.teachmeskills.entity.status.RoomStatus;
 import by.teachmeskills.entity.status.UserStatus;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,7 +15,8 @@ public class Room {
     private Long number;
     private Long identificationNumber;
     private Long maxPeople;
-    private UserStatus userStatus;
+    @Enumerated(EnumType.STRING)
+    private RoomStatus roomStatus;
     private Long priceByHour;
 
     @ManyToOne(cascade = CascadeType.ALL)
