@@ -28,8 +28,8 @@ public class VisitorRepositoryImpl implements VisitorRepositoryInterface {
     @Override
     public Visitor visitorByName(String name) {
         Session session = sessionFactory.openSession();
-        Query<Visitor> query = session.createQuery("select v from Visitor v where name =: username", Visitor.class);
-        query.setParameter("username", name);
+        Query<Visitor> query = session.createQuery("select v from Visitor v where name =: visitorName", Visitor.class);
+        query.setParameter("visitorName", name);
         List<Visitor> list = query.list();
         Visitor visitor = list.getFirst();
         return visitor;

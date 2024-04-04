@@ -17,17 +17,20 @@ import java.time.temporal.ChronoUnit;
 public class Main {
     public static void main(String[] args) {
 
-//        UserService userService = new UserService();
-//        User user = new User(null, "yara", "smit", LocalDate.of(1914, 6, 29), "San-Francisco");
-//        userService.add(user);
 //
-//        VisitorService visitorService = new VisitorService();
-//        Visitor visitor = new Visitor(null,"yara","lupa",LocalDate.now(),"Minsk",LocalDate.of(2024,01,01),LocalDate.of(2024,04,04),UserStatus.ACTIVED,new BigDecimal(1000L));
+//
+        VisitorService visitorService = new VisitorService();
+//        Visitor visitor = new Visitor();
+//        visitor.setId(null);
+//        visitor.setName("yara");
+//        visitor.setSurname("smit");
+//        visitor.setBirthday(LocalDate.now());
+//        visitor.setAddress("Minsk");
+//        visitor.setFirsVisitDate(LocalDate.of(2024,01,01));
+//        visitor.setLastVisitDate(LocalDate.of(2024,04,04));
+//        visitor.setUserStatus(UserStatus.ACTIVED);
+//        visitor.setSpentAmount(new BigDecimal(1000L));
 //        visitorService.add(visitor);
-//
-//        EmployeeService employeeService = new EmployeeService();
-//        Employee director = new Employee(LocalDate.of(2005, 06, 05), LocalDate.of(2010, 05, 10), "Director", new BigDecimal(3000L));
-//        employeeService.add(director);
 //
 //        Service_EntityService entityService = new Service_EntityService();
 //        Service basketball = new Service(null, "Basketball", 10L);
@@ -38,10 +41,9 @@ public class Main {
 //        roomService.add(basketClub);
 //
 //        RecordService recordService = new RecordService();
-//        Record record = new Record(null, LocalDate.now(), LocalTime.now(),user,basketClub);
+//        Record record = new Record(null, LocalDate.now(), LocalTime.now(),visitor,basketClub);
 //        recordService.add(record);
 
-        VisitorService visitorService = new VisitorService();
         System.out.println(visitorService.findByName("yara"));
     }
 }
