@@ -44,6 +44,31 @@ public class Main {
 //        Record record = new Record(null, LocalDate.now(), LocalTime.now(),visitor,basketClub);
 //        recordService.add(record);
 
-        System.out.println(visitorService.findByName("yara"));
+//        System.out.println(visitorService.findByName("yara"));
+//        Employee employee = new Employee();
+//        employee.setId(null);
+//        employee.setName("Jone");
+//        employee.setSurname("Kron");
+//        employee.setBirthday(LocalDate.of(1996,05,05));
+//        employee.setAddress("Grodno");
+//        employee.setDateBeginWork(LocalDate.of(2012,06,05));
+//        employee.setDateEndWork(LocalDate.now());
+//        employee.setPost("Director");
+//        employee.setSalary(150L);
+        EmployeeService employeeService = new EmployeeService();
+//        employeeService.add(employee);
+//        employee.setId(null);
+//        employee.setName("Luke");
+//        employee.setSurname("Likar");
+//        employee.setBirthday(LocalDate.of(1990,03,05));
+//        employee.setAddress("Brest");
+//        employee.setDateBeginWork(LocalDate.of(2010,04,8));
+//        employee.setDateEndWork(LocalDate.now());
+//        employee.setPost("Worker");
+//        employee.setSalary(50L);
+//        employeeService.add(employee);
+        System.out.println(employeeService.findEmployeeWithMaxSalary());
+
+
     }
 }

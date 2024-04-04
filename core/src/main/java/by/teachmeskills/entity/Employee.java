@@ -22,6 +22,6 @@ public class Employee extends User {
     @Column(name = "date_end_work")
     LocalDate dateEndWork;
     String post;
-    BigDecimal salary;
+    Long salary;
 
 }
