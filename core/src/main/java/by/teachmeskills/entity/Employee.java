@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,8 +14,6 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(schema = "test", name = "employee")
 @PrimaryKeyJoinColumn(name = "employee_id")
 public class Employee extends User {
@@ -24,4 +23,5 @@ public class Employee extends User {
     LocalDate dateEndWork;
     String post;
     BigDecimal salary;
+
 }

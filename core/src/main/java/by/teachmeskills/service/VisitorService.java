@@ -5,9 +5,17 @@ import by.teachmeskills.repository.VisitorRepositoryInterface;
 import by.teachmeskills.repository.impl.VisitorRepositoryImpl;
 
 public class VisitorService {
+    private VisitorRepositoryInterface visitorRepositoryInterface;
+
+    public VisitorService(){
+        visitorRepositoryInterface = new VisitorRepositoryImpl();
+    }
 
     public void add(Visitor visitor){
-        VisitorRepositoryInterface visitorRepositoryInterface = new VisitorRepositoryImpl();
         visitorRepositoryInterface.add(visitor);
+    }
+
+    public Visitor findByName(String name){
+        return visitorRepositoryInterface.visitorByName(name);
     }
 }

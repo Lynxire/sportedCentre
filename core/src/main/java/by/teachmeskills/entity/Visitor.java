@@ -2,10 +2,7 @@ package by.teachmeskills.entity;
 
 import by.teachmeskills.entity.status.UserStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,8 +10,6 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(schema = "test", name = "visitor")
 @PrimaryKeyJoinColumn(name = "visitor_id")
 public class Visitor extends User {
