@@ -33,4 +33,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryInterface {
         return first;
 
     }
+
+    @Override
+    public Employee findEmployeeWithMinSalary() {
+        Session session = sessionFactory.openSession();
+        Query<Employee> query = session.createQuery("select e from Employee e where salary = (SELECT min(ee.salary) from Employee ee)", Employee.class);
+        List<Employee> list = query.list();
+        Employee first = list.getFirst();
+        return first;
+    }
 }

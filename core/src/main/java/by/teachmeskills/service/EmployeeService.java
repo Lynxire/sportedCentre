@@ -16,4 +16,8 @@ public class EmployeeService {
         Employee maxSalaryForEmployee = employeeRepositoryInterface.findEmployeeWithMaxSalary();
         return maxSalaryForEmployee;
     }
+    public Employee findEmployeeWithMinSalary(){
+        Employee employeeWithMinSalary = employeeRepositoryInterface.findEmployeeWithMinSalary();
+        return employeeWithMinSalary;
+    }
 }

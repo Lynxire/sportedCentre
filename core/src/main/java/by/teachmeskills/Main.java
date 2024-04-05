@@ -68,6 +68,7 @@ public class Main {
 //        employee.setSalary(50L);
 //        employeeService.add(employee);
         System.out.println(employeeService.findEmployeeWithMaxSalary());
+        System.out.println(employeeService.findEmployeeWithMinSalary());
 
 
     }
