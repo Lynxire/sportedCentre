@@ -46,6 +46,7 @@ public class HibernateJavaConfig {
         configuration.addAnnotatedClass(Room.class);
         configuration.addAnnotatedClass(Record.class);
         configuration.addAnnotatedClass(Employee.class);
+        configuration.addAnnotatedClass(Visits.class);
         //        Сюда надо добавить наши данные по подключению
         configuration.setProperties(properties);
         serviceRegistryBuilder = new StandardServiceRegistryBuilder();
