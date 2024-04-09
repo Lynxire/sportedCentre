@@ -1,23 +1,23 @@
 package by.teachmeskills.repository.impl;
 
-import by.teachmeskills.config.hibernate.HibernateJavaConfig;
+//import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 import by.teachmeskills.entity.Room;
 import by.teachmeskills.repository.RoomRepositoryInterface;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-
+@Repository
+@RequiredArgsConstructor
 public class RoomRepositoryImpl implements RoomRepositoryInterface {
 
     private final SessionFactory sessionFactory;
-    public RoomRepositoryImpl(){
-        sessionFactory = HibernateJavaConfig.getSessionFactory();
-    }
     @Override
     public void add(Room room) {
         Session session = sessionFactory.openSession();

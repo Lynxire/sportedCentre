@@ -3,12 +3,18 @@ package by.teachmeskills.service;
 import by.teachmeskills.entity.Employee;
 import by.teachmeskills.repository.EmployeeRepositoryInterface;
 import by.teachmeskills.repository.impl.EmployeeRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EmployeeService {
     private EmployeeRepositoryInterface employeeRepositoryInterface;
-    public EmployeeService(){
-        employeeRepositoryInterface = new EmployeeRepositoryImpl();
+
+    @Autowired
+    public EmployeeService(EmployeeRepositoryInterface employeeRepositoryInterface) {
+        this.employeeRepositoryInterface = employeeRepositoryInterface;
     }
+
     public void add(Employee employee){
         employeeRepositoryInterface.add(employee);
     }
