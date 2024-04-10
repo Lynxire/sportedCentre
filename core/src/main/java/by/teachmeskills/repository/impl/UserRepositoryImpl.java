@@ -1,20 +1,20 @@
 package by.teachmeskills.repository.impl;
 
 import by.teachmeskills.config.hibernate.HibernateConnection;
-import by.teachmeskills.config.hibernate.HibernateJavaConfig;
+//import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 import by.teachmeskills.entity.User;
 import by.teachmeskills.repository.UserRepositoryInterface;
 import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
+import org.springframework.stereotype.Repository;
+@RequiredArgsConstructor
+@Repository
 public class UserRepositoryImpl implements UserRepositoryInterface {
 
     private final SessionFactory sessionFactory;
 
-    public UserRepositoryImpl() {
-        sessionFactory = HibernateJavaConfig.getSessionFactory();
-    }
 
     @Override
     public void add(User user) {
@@ -39,6 +39,17 @@ public class UserRepositoryImpl implements UserRepositoryInterface {
         session.close();
         return user;
 
+
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        User user = session.get(User.class, id);
+        session.remove(user);
+        session.getTransaction().commit();
+        session.close();
 
     }
 
