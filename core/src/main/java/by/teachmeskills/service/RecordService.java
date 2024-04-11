@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class RecordService {
-    private RecordRepositoryInterface recordRepositoryInterface;
+
+    private final RecordRepositoryInterface recordRepositoryInterface;
 
     public void add(Record record) {
         recordRepositoryInterface.add(record);

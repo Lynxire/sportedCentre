@@ -1,5 +1,6 @@
 package by.teachmeskills;
 
+import by.teachmeskills.config.hibernate.HibernateConfiguration;
 import by.teachmeskills.entity.*;
 import by.teachmeskills.entity.Record;
 import by.teachmeskills.entity.status.RoomStatus;
@@ -25,7 +26,19 @@ public class Main {
         ApplicationContext ctx = new AnnotationConfigApplicationContext
                 (Main.class);
         UserService userService = ctx.getBean("userService", UserService.class);
-        System.out.println(userService.findById(1L));
+        SalesService salesService = ctx.getBean("salesService", SalesService.class);
+        RecordService recordService= ctx.getBean("recordService", RecordService.class);
+
+        Record record=new Record();
+        record.setDate(LocalDate.now());
+        record.setTime(LocalTime.now());
+        recordService.add(record);
+//        Sales sales = new Sales();
+//        sales.setValue(new BigDecimal(15L));
+//        sales.setBeginDate(LocalDate.now());
+//        sales.setEndDate(LocalDate.of(2024,04,12));
+//        sales.setUserStatus(UserStatus.ACTIVED);
+//        salesService.save(sales);
 
     }
 }

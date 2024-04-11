@@ -2,16 +2,16 @@ package by.teachmeskills.config.hibernate;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 //import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -27,19 +27,42 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("by.teachmeskills")
 @EnableTransactionManagement
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:config/application.properties")
+@EnableJpaRepositories("by.teachmeskills")
 public class HibernateConfiguration {
-//    @Value("${server.login}")
-//    private String login;
+
+    @Value("${hibernate.packagesToScan}")
+    private String packagesToScan;
+    @Value("${server.url}")
+    private String url;
+    @Value("${server.driver}")
+    private String driver;
+    @Value("${server.login}")
+    private String login;
+    @Value("${server.password}")
+    private String pass;
+    @Value("${hibernate.dialect}")
+    private String dialect;
+    @Value("${hibernate.show_sql}")
+    private boolean showSql;
+    @Value("${hibernate.format_sql}")
+    private boolean formatSql;
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hbm2ddl;
+
 
     @Bean
-    public  PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    public Properties hibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", dialect);
+        properties.put("hibernate.show_sql", showSql);
+        properties.put("hibernate.format_sql", formatSql);
+        properties.put("hibernate.hbm2ddl.auto", hbm2ddl);
+        return properties;
     }
 
     @Bean
-    public  DataSource dataSource(@Value("${server.url}") String url, @Value("${server.driver}") String driver,
-                                  @Value("${server.login}") String login, @Value("${server.password}") String pass) {
+    public DataSource dataSource() {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName(driver);
         hikariConfig.setJdbcUrl(url);
@@ -49,46 +72,26 @@ public class HibernateConfiguration {
         return ds;
     }
 
+
     @Bean
-    public Properties hibernateProperties(@Value("${hibernate.dialect}") String dialect,
-                                          @Value("${hibernate.show_sql}") boolean showSql, @Value("${hibernate.format_sql}") boolean formatSql,
-                                          @Value("${hibernate.hbm2ddl.auto}") String hbm2ddl) {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", dialect);
-        properties.put("hibernate.show_sql", showSql);
-        properties.put("hibernate.format_sql", formatSql);
-        properties.put("hibernate.hbm2ddl.auto", hbm2ddl);
-        return properties;
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+        entityManagerFactoryBean.setDataSource(dataSource());
+        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        entityManagerFactoryBean.setPackagesToScan(packagesToScan);
+        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+        return entityManagerFactoryBean;
     }
 
-    //Этот вариант не работает со SpringData
     @Bean
-    public SessionFactory sessionFactory(DataSource dataSource,
-                                         @Value("${hibernate.packagesToScan}") String packagesToScan,
-                                         @Qualifier("hibernateProperties") Properties properties) throws Exception {
-        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
-        sessionFactoryBean.setDataSource(dataSource);
-        sessionFactoryBean.setPackagesToScan(packagesToScan);
-        sessionFactoryBean.setHibernateProperties(properties);
-        sessionFactoryBean.afterPropertiesSet();
-        return sessionFactoryBean.getObject();
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager transactionManagerJpa=new JpaTransactionManager();
+        transactionManagerJpa.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManagerJpa;
     }
-
-
 
 //    @Bean
-//    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, @Value("${hibernate.packagesToScan}") String packagesToScan,
-//                                                                Properties hibernateProperties) {
-//        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-//        entityManagerFactoryBean.setDataSource(dataSource);
-//        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-//        entityManagerFactoryBean.setPackagesToScan(packagesToScan);
-//        entityManagerFactoryBean.setJpaProperties(hibernateProperties);
-//        return entityManagerFactoryBean;
+//    public PlatformTransactionManager transactionManager(SessionFactory sessionFactory) {
+//        return new HibernateTransactionManager(sessionFactory);
 //    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager(SessionFactory sessionFactory) {
-        return new HibernateTransactionManager(sessionFactory);
-    }
 }
