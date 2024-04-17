@@ -12,13 +12,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RecordRepositoryImpl implements RecordRepositoryInterface {
-
-    private final SessionFactory sessionFactory;
-
     @Autowired
-    public RecordRepositoryImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    private SessionFactory sessionFactory;
+
 
     @Override
     public void add(Record record) {

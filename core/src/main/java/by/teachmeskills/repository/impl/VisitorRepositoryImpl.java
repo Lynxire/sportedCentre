@@ -3,15 +3,16 @@ package by.teachmeskills.repository.impl;
 //import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 import by.teachmeskills.entity.Visitor;
 import by.teachmeskills.repository.VisitorRepositoryInterface;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
+@RequiredArgsConstructor
 @Repository
 public class VisitorRepositoryImpl implements VisitorRepositoryInterface {
-    private  SessionFactory  sessionFactory;
+    private final   SessionFactory  sessionFactory;
 
 //    public VisitorRepositoryImpl() {
 //        sessionFactory = HibernateJavaConfig.getSessionFactory();
@@ -21,7 +22,7 @@ public class VisitorRepositoryImpl implements VisitorRepositoryInterface {
     public void add(Visitor visitor) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(visitor);
+        session.merge(visitor);
         session.getTransaction().commit();
         session.close();
     }

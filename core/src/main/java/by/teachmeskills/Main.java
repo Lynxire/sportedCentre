@@ -28,11 +28,19 @@ public class Main {
         UserService userService = ctx.getBean("userService", UserService.class);
         SalesService salesService = ctx.getBean("salesService", SalesService.class);
         RecordService recordService= ctx.getBean("recordService", RecordService.class);
+        VisitorService visitorService = ctx.getBean("visitorService", VisitorService.class);
+        Visitor visitor = new Visitor();
+        visitor.setId(1L);
+        visitor.setName("Visitor");
+        visitor.setAddress("1");
+        visitor.setUserStatus(UserStatus.ACTIVED);
+        visitorService.add(visitor);
 
-        Record record=new Record();
-        record.setDate(LocalDate.now());
-        record.setTime(LocalTime.now());
-        recordService.add(record);
+
+//        Record record=new Record();
+//        record.setDate(LocalDate.now());
+//        record.setTime(LocalTime.now());
+//        recordService.add(record);
 //        Sales sales = new Sales();
 //        sales.setValue(new BigDecimal(15L));
 //        sales.setBeginDate(LocalDate.now());

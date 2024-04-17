@@ -19,6 +19,7 @@ public class Sales {
     private LocalDate beginDate;
     @Column(name = "end_date")
     private LocalDate endDate;
+    @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
 
 }
