@@ -23,18 +23,18 @@ import java.time.temporal.ChronoUnit;
 @ComponentScan("by.teachmeskills")
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext
-                (Main.class);
-        UserService userService = ctx.getBean("userService", UserService.class);
-        SalesService salesService = ctx.getBean("salesService", SalesService.class);
-        RecordService recordService= ctx.getBean("recordService", RecordService.class);
-        VisitorService visitorService = ctx.getBean("visitorService", VisitorService.class);
-        Visitor visitor = new Visitor();
-        visitor.setId(1L);
-        visitor.setName("Visitor");
-        visitor.setAddress("1");
-        visitor.setUserStatus(UserStatus.ACTIVED);
-        visitorService.add(visitor);
+//        ApplicationContext ctx = new AnnotationConfigApplicationContext
+//                (Main.class);
+//        UserService userService = ctx.getBean("userService", UserService.class);
+//        SalesService salesService = ctx.getBean("salesService", SalesService.class);
+//        RecordService recordService= ctx.getBean("recordService", RecordService.class);
+//        VisitorService visitorService = ctx.getBean("visitorService", VisitorService.class);
+//        Visitor visitor = new Visitor();
+//        visitor.setId(1L);
+//        visitor.setName("Visitor");
+//        visitor.setAddress("1");
+//        visitor.setUserStatus(UserStatus.ACTIVED);
+//        visitorService.add(visitor);
 
 
 //        Record record=new Record();
