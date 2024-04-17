@@ -1,4 +1,4 @@
-package by.teachmeskills.config;
+package by.teachmeskills.config.MVC;
 
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

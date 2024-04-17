@@ -1,4 +1,4 @@
-package by.teachmeskills.config.hibernate;
+package by.teachmeskills.config.spingData;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -29,7 +28,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:config/application.properties")
 @EnableJpaRepositories("by.teachmeskills")
-public class HibernateConfiguration {
+public class SpringConfiguration {
 
     @Value("${hibernate.packagesToScan}")
     private String packagesToScan;
