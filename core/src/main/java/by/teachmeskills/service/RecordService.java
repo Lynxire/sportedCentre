@@ -1,10 +1,8 @@
 package by.teachmeskills.service;
 
 import by.teachmeskills.entity.Record;
-import by.teachmeskills.repository.RecordRepositoryInterface;
-import by.teachmeskills.repository.impl.RecordRepositoryImpl;
+import by.teachmeskills.repository.hibbernate.RecordRepositoryInterface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor

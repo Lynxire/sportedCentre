@@ -1,10 +1,9 @@
-package by.teachmeskills.repository.impl;
+package by.teachmeskills.repository.hibbernate.impl;
 
 //import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 
 import by.teachmeskills.entity.Record;
-import by.teachmeskills.repository.RecordRepositoryInterface;
-import lombok.RequiredArgsConstructor;
+import by.teachmeskills.repository.hibbernate.RecordRepositoryInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
 package by.teachmeskills.service;
 
 import by.teachmeskills.entity.Service;
-import by.teachmeskills.repository.ServiceRepositoryInterface;
-import by.teachmeskills.repository.impl.ServiceRepositoryImpl;
+import by.teachmeskills.repository.hibbernate.ServiceRepositoryInterface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 @RequiredArgsConstructor
 @org.springframework.stereotype.Service
 public class Service_EntityService {

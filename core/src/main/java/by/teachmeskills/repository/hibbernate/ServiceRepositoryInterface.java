@@ -1,6 +1,5 @@
-package by.teachmeskills.repository;
+package by.teachmeskills.repository.hibbernate;
 
-import by.teachmeskills.entity.Employee;
 import by.teachmeskills.entity.Service;
 
 public interface ServiceRepositoryInterface {

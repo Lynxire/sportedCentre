@@ -1,8 +1,7 @@
 package by.teachmeskills.service;
 
 import by.teachmeskills.entity.Employee;
-import by.teachmeskills.repository.EmployeeRepositoryInterface;
-import by.teachmeskills.repository.impl.EmployeeRepositoryImpl;
+import by.teachmeskills.repository.hibbernate.EmployeeRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
