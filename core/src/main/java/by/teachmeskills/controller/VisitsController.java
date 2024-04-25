@@ -4,6 +4,7 @@ import by.teachmeskills.entity.Visitor;
 import by.teachmeskills.entity.Visits;
 import by.teachmeskills.service.VisitorService;
 import by.teachmeskills.service.VisitsService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
