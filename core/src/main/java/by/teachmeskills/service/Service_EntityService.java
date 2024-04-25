@@ -1,6 +1,9 @@
 package by.teachmeskills.service;
 
+import by.teachmeskills.api.service.ServiceRequest;
+import by.teachmeskills.api.service.ServiceResponse;
 import by.teachmeskills.entity.Service;
+import by.teachmeskills.mapper.ServiceMapper;
 import by.teachmeskills.repository.ServiceRepository;
 import by.teachmeskills.repository.hibbernate.ServiceRepositoryInterface;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +12,10 @@ import lombok.RequiredArgsConstructor;
 @org.springframework.stereotype.Service
 public class Service_EntityService {
     private final ServiceRepository  serviceRepository;
-
-    public void add(Service service){
-        serviceRepository.save(service);
+    private final ServiceMapper mapper;
+    public ServiceResponse save(ServiceRequest serviceRequest){
+        Service entity = mapper.toEntity(serviceRequest);
+        serviceRepository.save(entity);
+        return mapper.toResponse(entity);
     }
 }

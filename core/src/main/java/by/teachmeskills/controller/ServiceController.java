@@ -16,12 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("service")
 public class ServiceController {
     private final Service_EntityService entityService;
-    private final ServiceMapper mapper;
     @PostMapping("/add")
     public ServiceResponse addService(@RequestBody ServiceRequest serviceRequest) {
-        Service entity = mapper.toEntity(serviceRequest);
-        entityService.add(entity);
-        return mapper.toResponse(entity);
+        return entityService.save(serviceRequest);
     }
 
 
