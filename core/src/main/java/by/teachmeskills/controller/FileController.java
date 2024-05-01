@@ -1,5 +1,7 @@
 package by.teachmeskills.controller;
 
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,8 @@ import java.io.*;
 
 @RestController
 @RequestMapping("file")
+@Hidden
+@Tag(name = "Кодировщик и декодировщик файла", description = "Данный контроллер кодирует и декодирует файл, формат кодировки base64")
 public class FileController {
     @PostMapping("/save")
     public void saveFile(@RequestParam("file") MultipartFile file) {
