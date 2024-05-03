@@ -1,4 +1,4 @@
-package by.teachmeskills.repository;
+package by.teachmeskills.repository.hibbernate;
 
 import by.teachmeskills.entity.Room;
 

@@ -1,8 +1,9 @@
-package by.teachmeskills.repository.impl;
+package by.teachmeskills.repository.hibbernate.impl;
 
 //import by.teachmeskills.config.hibernate.HibernateJavaConfig;
+
 import by.teachmeskills.entity.Record;
-import by.teachmeskills.repository.RecordRepositoryInterface;
+import by.teachmeskills.repository.hibbernate.RecordRepositoryInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RecordRepositoryImpl implements RecordRepositoryInterface {
-    private final SessionFactory sessionFactory;
-
     @Autowired
-    public RecordRepositoryImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    private SessionFactory sessionFactory;
+
 
     @Override
     public void add(Record record) {

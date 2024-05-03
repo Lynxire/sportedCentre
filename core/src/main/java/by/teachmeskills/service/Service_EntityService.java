@@ -1,16 +1,23 @@
 package by.teachmeskills.service;
 
+import by.teachmeskills.api.service.ServiceRequest;
+import by.teachmeskills.api.service.ServiceResponse;
 import by.teachmeskills.entity.Service;
-import by.teachmeskills.repository.ServiceRepositoryInterface;
-import by.teachmeskills.repository.impl.ServiceRepositoryImpl;
+import by.teachmeskills.loggerAOP.LoggingAnnotation;
+import by.teachmeskills.mapper.ServiceMapper;
+import by.teachmeskills.repository.ServiceRepository;
+import by.teachmeskills.repository.hibbernate.ServiceRepositoryInterface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 @RequiredArgsConstructor
 @org.springframework.stereotype.Service
 public class Service_EntityService {
-    private final ServiceRepositoryInterface serviceRepositoryInterface;
-
-    public void add(Service service){
-        serviceRepositoryInterface.add(service);
+    private final ServiceRepository  serviceRepository;
+    private final ServiceMapper mapper;
+    @LoggingAnnotation
+    public ServiceResponse save(ServiceRequest serviceRequest){
+        Service entity = mapper.toEntity(serviceRequest);
+        serviceRepository.save(entity);
+        return mapper.toResponse(entity);
     }
 }

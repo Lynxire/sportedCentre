@@ -1,31 +1,30 @@
 package by.teachmeskills;
 
-import by.teachmeskills.entity.*;
-import by.teachmeskills.entity.Record;
-import by.teachmeskills.entity.status.RoomStatus;
-import by.teachmeskills.entity.status.UserStatus;
-import by.teachmeskills.repository.*;
-import by.teachmeskills.repository.impl.*;
-import by.teachmeskills.service.*;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-
-@Configuration
-@ComponentScan("by.teachmeskills")
+@OpenAPIDefinition(
+        info = @Info(
+                title = "SportCentre",
+                version = "1.0.0",
+                contact = @Contact(
+                        name = "Telegram",
+                        url = "https://t.me/terabu"
+                )
+        )
+)
+@SpringBootApplication
+@EnableJpaRepositories
+@EnableTransactionManagement
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext
-                (Main.class);
-        UserService userService = ctx.getBean("userService", UserService.class);
-        System.out.println(userService.findById(1L));
-
+        SpringApplication.run(Main.class, args);
     }
 }

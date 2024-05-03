@@ -1,8 +1,8 @@
-package by.teachmeskills.repository.impl;
+package by.teachmeskills.repository.hibbernate.impl;
 
 //import by.teachmeskills.config.hibernate.HibernateJavaConfig;
 import by.teachmeskills.entity.Service;
-import by.teachmeskills.repository.ServiceRepositoryInterface;
+import by.teachmeskills.repository.hibbernate.ServiceRepositoryInterface;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

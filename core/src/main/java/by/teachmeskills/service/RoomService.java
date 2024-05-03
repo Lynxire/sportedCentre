@@ -1,8 +1,7 @@
 package by.teachmeskills.service;
 
 import by.teachmeskills.entity.Room;
-import by.teachmeskills.repository.RoomRepositoryInterface;
-import by.teachmeskills.repository.impl.RoomRepositoryImpl;
+import by.teachmeskills.repository.hibbernate.RoomRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
